@@ -1,0 +1,25 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "edmogeor"
+            }
+        ],
+        "Category": "File System",
+        "Description": "Customizable wastebin with configurable icons",
+        "Icon": "user-trash",
+        "License": "GPL-2.0+",
+        "Name": "Custom Wastebin",
+        "Id": "org.kde.plasma.customwastebin"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "X-Plasma-DropUrlPatterns": [
+        "trash:/"
+    ],
+    "X-Plasma-NotificationArea": "true",
+    "X-Plasma-NotificationAreaCategory": "SystemServices",
+    "X-Plasma-Provides": [
+        "org.kde.plasma.trash"
+    ],
+    "X-Plasma-ConfigPlugins": ["General"]
+}
