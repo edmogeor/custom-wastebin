@@ -15,7 +15,7 @@
         </entry>
         <entry name="useSymbolicInPanel" type="Bool">
             <label>Use symbolic icons when in panel</label>
-            <default>true</default>
+            <default>false</default>
         </entry>
     </group>
 </kcfg>
