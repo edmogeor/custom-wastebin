@@ -82,43 +82,6 @@ KCM.SimpleKCM {
             Kirigami.FormData.isSection: true
         }
 
-        RowLayout {
-            Kirigami.FormData.label: i18n("Preview:")
-            spacing: Kirigami.Units.largeSpacing
-
-            ColumnLayout {
-                spacing: Kirigami.Units.smallSpacing
-                Kirigami.Icon {
-                    source: emptyIconButton.icon.name
-                    Layout.preferredWidth: Kirigami.Units.iconSizes.huge
-                    Layout.preferredHeight: Kirigami.Units.iconSizes.huge
-                    Layout.alignment: Qt.AlignHCenter
-                }
-                QQC2.Label {
-                    text: i18n("Empty")
-                    Layout.alignment: Qt.AlignHCenter
-                }
-            }
-
-            ColumnLayout {
-                spacing: Kirigami.Units.smallSpacing
-                Kirigami.Icon {
-                    source: fullIconButton.icon.name
-                    Layout.preferredWidth: Kirigami.Units.iconSizes.huge
-                    Layout.preferredHeight: Kirigami.Units.iconSizes.huge
-                    Layout.alignment: Qt.AlignHCenter
-                }
-                QQC2.Label {
-                    text: i18n("Full")
-                    Layout.alignment: Qt.AlignHCenter
-                }
-            }
-        }
-
-        Item {
-            Kirigami.FormData.isSection: true
-        }
-
         QQC2.Button {
             text: i18n("Reset to Defaults")
             icon.name: "edit-undo"
