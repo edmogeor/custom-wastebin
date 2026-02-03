@@ -17,5 +17,9 @@
             <label>Use symbolic icons when in panel</label>
             <default>false</default>
         </entry>
+        <entry name="playSound" type="Bool">
+            <label>Play sound when emptying trash</label>
+            <default>true</default>
+        </entry>
     </group>
 </kcfg>

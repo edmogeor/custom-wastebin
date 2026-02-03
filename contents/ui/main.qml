@@ -81,7 +81,7 @@ PlasmoidItem {
             if (source.includes("wc -l")) {
                 // Trash count result
                 root.trashCount = parseInt(data.stdout.trim()) || 0
-            } else if (source.includes("gio trash --empty")) {
+            } else if (source.includes("dbus-send")) {
                 // Empty trash finished
                 root.emptying = false
                 updateTrashCount()
@@ -112,7 +112,11 @@ PlasmoidItem {
 
     function emptyTrash() {
         root.emptying = true
-        executable.connectSource("gio trash --empty")
+        let cmd = "rm -rf ~/.local/share/Trash/files/* ~/.local/share/Trash/info/* && dbus-send --session --type=method_call --dest=org.kde.kdirnotifier /org/kde/kdirnotifier org.kde.KDirNotifier.Dirty string:'trash:/'"
+        if (Plasmoid.configuration.playSound) {
+            cmd += " && canberra-gtk-play -i trash-empty"
+        }
+        executable.connectSource(cmd)
     }
 
     function trashUrls(urls) {

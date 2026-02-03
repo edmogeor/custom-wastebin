@@ -18,6 +18,7 @@ KCM.SimpleKCM {
     property alias cfg_emptyIcon: emptyIconButton.icon.name
     property alias cfg_fullIcon: fullIconButton.icon.name
     property alias cfg_useSymbolicInPanel: useSymbolicCheckbox.checked
+    property alias cfg_playSound: playSoundCheckbox.checked
 
     Kirigami.FormLayout {
         anchors.fill: parent
@@ -76,6 +77,12 @@ KCM.SimpleKCM {
             id: useSymbolicCheckbox
             Kirigami.FormData.label: i18n("Panel behavior:")
             text: i18n("Use symbolic icons when in panel")
+        }
+
+        QQC2.CheckBox {
+            id: playSoundCheckbox
+            Kirigami.FormData.label: i18n("Sound:")
+            text: i18n("Play sound when emptying trash")
         }
 
         Item {
