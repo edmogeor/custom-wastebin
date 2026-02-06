@@ -160,18 +160,18 @@ PlasmoidItem {
 
     Plasmoid.contextualActions: [
         PlasmaCore.Action {
+            text: i18nc("@action:inmenu Empty the trash", "Empty")
+            icon.name: "trash-empty-symbolic"
+            enabled: root.hasContents && !root.emptying
+            onTriggered: emptyTrash()
+        },
+        PlasmaCore.Action {
             text: i18nc("@action:inmenu Open the trash", "Open")
             icon.name: "document-open-symbolic"
             onTriggered: Plasmoid.activated()
         },
         PlasmaCore.Action {
             isSeparator: true
-        },
-        PlasmaCore.Action {
-            text: i18nc("@action:inmenu Empty the trash", "Empty")
-            icon.name: "trash-empty-symbolic"
-            enabled: root.hasContents && !root.emptying
-            onTriggered: emptyTrash()
         },
         PlasmaCore.Action {
             text: i18nc("@action:inmenu", "Trash Settings...")
