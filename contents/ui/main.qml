@@ -165,6 +165,9 @@ PlasmoidItem {
             onTriggered: Plasmoid.activated()
         },
         PlasmaCore.Action {
+            isSeparator: true
+        },
+        PlasmaCore.Action {
             text: i18nc("@action:inmenu Empty the trash", "Empty")
             icon.name: "trash-empty-symbolic"
             enabled: root.hasContents && !root.emptying
