@@ -2,38 +2,46 @@
 
 # Install Custom Wastebin Plasmoid
 
-PLASMOID_DIR="$HOME/.local/share/plasma/plasmoids/org.kde.plasma.customwastebin"
+PLUGIN_ID="org.kde.plasma.customwastebin"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+TYPE="Plasma/Applet"
 
-echo "Installing Custom Wastebin widget..."
+global=false
+for arg in "$@"; do
+    case "$arg" in
+        --global) global=true ;;
+    esac
+done
 
-# Remove old installation if exists
-if [ -d "$PLASMOID_DIR" ]; then
-    echo "Removing old installation..."
-    rm -rf "$PLASMOID_DIR"
+if $global; then
+    echo "Installing Custom Wastebin widget globally..."
+    INSTALL_DIR="/usr/share/plasma/plasmoids/$PLUGIN_ID"
+    GLOBAL_FLAG="-g"
+else
+    echo "Installing Custom Wastebin widget for current user..."
+    INSTALL_DIR="$HOME/.local/share/plasma/plasmoids/$PLUGIN_ID"
+    GLOBAL_FLAG=""
 fi
 
-# Create directory
-mkdir -p "$PLASMOID_DIR"
+if [ -d "$INSTALL_DIR" ]; then
+    echo "Existing installation found, upgrading..."
+    kpackagetool6 -t "$TYPE" $GLOBAL_FLAG -u "$SCRIPT_DIR"
+else
+    kpackagetool6 -t "$TYPE" $GLOBAL_FLAG -i "$SCRIPT_DIR"
+fi
 
-# Copy files
-cp -r "$(dirname "$0")"/* "$PLASMOID_DIR/"
-
-# Remove install script from installation
-rm -f "$PLASMOID_DIR/install.sh"
-rm -f "$PLASMOID_DIR/uninstall.sh"
-
-echo "Installation complete!"
-echo ""
-echo "To use the widget:"
-echo "1. Right-click on your panel or desktop"
-echo "2. Select 'Add Widgets...'"
-echo "3. Search for 'Custom Wastebin'"
-echo "4. Drag it to your panel or desktop"
-echo ""
-echo "To configure custom icons:"
-echo "1. Right-click on the widget"
-echo "2. Select 'Configure Custom Wastebin...'"
-echo "3. Click on the icon buttons to choose your icons"
-echo ""
-echo "You may need to restart Plasma for the widget to appear:"
-echo "  systemctl --user restart plasma-plasmashell.service"
+if [ $? -eq 0 ]; then
+    echo "Installation complete!"
+    echo ""
+    echo "To use the widget:"
+    echo "1. Right-click on your panel or desktop"
+    echo "2. Select 'Add Widgets...'"
+    echo "3. Search for 'Custom Wastebin'"
+    echo "4. Drag it to your panel or desktop"
+    echo ""
+    echo "You may need to restart Plasma for the widget to appear:"
+    echo "  systemctl --user restart plasma-plasmashell.service"
+else
+    echo "Installation failed."
+    exit 1
+fi

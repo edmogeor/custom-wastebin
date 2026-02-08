@@ -2,16 +2,30 @@
 
 # Uninstall Custom Wastebin Plasmoid
 
-PLASMOID_DIR="$HOME/.local/share/plasma/plasmoids/org.kde.plasma.customwastebin"
+PLUGIN_ID="org.kde.plasma.customwastebin"
+TYPE="Plasma/Applet"
+LOCAL_DIR="$HOME/.local/share/plasma/plasmoids/$PLUGIN_ID"
+GLOBAL_DIR="/usr/share/plasma/plasmoids/$PLUGIN_ID"
 
-echo "Uninstalling Custom Wastebin widget..."
+found=false
 
-if [ -d "$PLASMOID_DIR" ]; then
-    rm -rf "$PLASMOID_DIR"
+if [ -d "$LOCAL_DIR" ]; then
+    echo "Removing user-local installation..."
+    kpackagetool6 -t "$TYPE" -r "$PLUGIN_ID"
+    found=true
+fi
+
+if [ -d "$GLOBAL_DIR" ]; then
+    echo "Removing global installation..."
+    kpackagetool6 -t "$TYPE" -g -r "$PLUGIN_ID"
+    found=true
+fi
+
+if $found; then
     echo "Widget removed."
     echo ""
     echo "Restart Plasma to complete removal:"
-    echo "  kquitapp6 plasmashell && kstart plasmashell"
+    echo "  systemctl --user restart plasma-plasmashell.service"
 else
-    echo "Widget not found at $PLASMOID_DIR"
+    echo "Widget not found."
 fi

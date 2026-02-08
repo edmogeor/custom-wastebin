@@ -11,13 +11,19 @@ A customizable wastebin widget for KDE Plasma 6 that lets you set your own icons
 
 ## Installation
 
+Install for the current user:
 ```bash
 ./install.sh
 ```
 
+Install globally (system-wide, for all users):
+```bash
+sudo ./install.sh --global
+```
+
 Then restart Plasma or log out/in:
 ```bash
-kquitapp6 plasmashell && kstart plasmashell
+systemctl --user restart plasma-plasmashell.service
 ```
 
 Add the widget by right-clicking your panel → Add Widgets → search "Custom Wastebin".
@@ -31,6 +37,8 @@ Right-click the widget → Configure Custom Wastebin → click the icon buttons 
 ```bash
 ./uninstall.sh
 ```
+
+This automatically detects and removes both user-local and global installations.
 
 ## License
 
