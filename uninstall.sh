@@ -17,7 +17,7 @@ fi
 
 if [ -d "$GLOBAL_DIR" ]; then
     echo "Removing global installation..."
-    kpackagetool6 -t "$TYPE" -g -r "$PLUGIN_ID"
+    sudo kpackagetool6 -t "$TYPE" -g -r "$PLUGIN_ID"
     found=true
 fi
 

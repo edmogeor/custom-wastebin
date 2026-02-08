@@ -18,7 +18,7 @@ Install for the current user:
 
 Install globally (system-wide, for all users):
 ```bash
-sudo ./install.sh --global
+./install.sh --global
 ```
 
 Then restart Plasma or log out/in:
