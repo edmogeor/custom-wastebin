@@ -9,7 +9,7 @@
         "Category": "File System",
         "Description": "Customizable wastebin with configurable icons",
         "Icon": "user-trash",
-        "License": "GPL-2.0+",
+        "License": "GPL-3.0-or-later",
         "Name": "Custom Wastebin",
         "Id": "org.kde.plasma.customwastebin"
     },

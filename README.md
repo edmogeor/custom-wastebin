@@ -42,4 +42,4 @@ This automatically detects and removes both user-local and global installations.
 
 ## License
 
-GPL-2.0-or-later
+GPL-3.0-or-later

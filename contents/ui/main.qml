@@ -2,9 +2,9 @@
     SPDX-FileCopyrightText: 2013 Heena Mahour <heena393@gmail.com>
     SPDX-FileCopyrightText: 2015, 2016 Kai Uwe Broulik <kde@privat.broulik.de>
     SPDX-FileCopyrightText: 2023 Nate Graham <nate@kde.org>
-    SPDX-FileCopyrightText: 2026 edmogeor (Custom icon support)
+    SPDX-FileCopyrightText: 2026 edmogeor
 
-    SPDX-License-Identifier: GPL-2.0-or-later
+    SPDX-License-Identifier: GPL-3.0-or-later
 */
 pragma ComponentBehavior: Bound
 

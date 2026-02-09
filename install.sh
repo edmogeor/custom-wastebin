@@ -1,5 +1,8 @@
 #!/bin/bash
-
+#
+# SPDX-FileCopyrightText: 2026 edmogeor
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
 # Install Custom Wastebin Plasmoid
 
 PLUGIN_ID="org.kde.plasma.customwastebin"
